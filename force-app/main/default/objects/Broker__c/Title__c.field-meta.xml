@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<CustomField xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Broker__c.Title__c'>
+  <fullName>Title__c</fullName>
+  <externalId>false</externalId>
+  <label>Title</label>
+  <length>30</length>
+  <required>false</required>
+  <trackTrending>false</trackTrending>
+  <type>Text</type>
+  <unique>false</unique>
+</CustomField>

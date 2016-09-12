@@ -1,0 +1,371 @@
+<apex:page controller="DreamHouseSampleDataController">
+    
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+        <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.SLDS100,'assets/styles/salesforce-lightning-design-system-ltng.css')}"/>
+        
+        <apex:remoteObjects >
+    
+            <apex:remoteObjectModel name="Broker__c" jsShorthand="Broker">
+                <apex:remoteObjectField name="Name" jsShorthand="name"/>
+                <apex:remoteObjectField name="Title__c" jsShorthand="title"/>
+                <apex:remoteObjectField name="Phone__c" jsShorthand="phone"/>
+                <apex:remoteObjectField name="Mobile_Phone__c" jsShorthand="mobile_phone"/>
+                <apex:remoteObjectField name="Email__c" jsShorthand="email"/>
+                <apex:remoteObjectField name="Picture__c" jsShorthand="picture"/>
+            </apex:remoteObjectModel>
+    
+            <apex:remoteObjectModel name="Property__c" jsShorthand="Property">
+                <apex:remoteObjectField name="Name" jsShorthand="name"/>
+                <apex:remoteObjectField name="Address__c" jsShorthand="address"/>
+                <apex:remoteObjectField name="City__c" jsShorthand="city"/>
+                <apex:remoteObjectField name="State__c" jsShorthand="state"/>
+                <apex:remoteObjectField name="Zip__c" jsShorthand="zip"/>
+                <apex:remoteObjectField name="Price__c" jsShorthand="price"/>
+                <apex:remoteObjectField name="Title__c" jsShorthand="title"/>
+                <apex:remoteObjectField name="Beds__c" jsShorthand="bedrooms"/>
+                <apex:remoteObjectField name="Baths__c" jsShorthand="bathrooms"/>
+                <apex:remoteObjectField name="Status__c" jsShorthand="status"/>
+                <apex:remoteObjectField name="Broker__c" jsShorthand="brokerId"/>
+                <apex:remoteObjectField name="Picture__c" jsShorthand="pic"/>
+                <apex:remoteObjectField name="Thumbnail__c" jsShorthand="thumb"/>
+                <apex:remoteObjectField name="Description__c" jsShorthand="description"/>
+                <apex:remoteObjectField name="Location__Latitude__s" jsShorthand="lat"/>
+                <apex:remoteObjectField name="Location__Longitude__s" jsShorthand="long"/>
+            </apex:remoteObjectModel>
+            
+        </apex:remoteObjects>
+        
+        <body style="padding:0;margin:0">
+            
+        <div class="slds">
+            <div class="slds-page-header" role="banner">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <svg aria-hidden="true" class="slds-icon slds-icon--large slds-icon-standard-opportunity">
+                            <use xlink:href="{!URLFOR($Resource.SLDS100,'/assets/icons/custom-sprite/svg/symbols.svg#custom57')}"></use>
+                        </svg>
+                    </div>
+                    <div class="slds-media__body">
+                      	<p class="slds-page-header__title slds-truncate slds-align-middle" title="DreamHouse Sample Data">DreamHouse Sample Data</p>
+                        <p class="slds-text-body--small slds-page-header__info">Sample data for the DreamHouse Application</p>
+                    </div>
+                </div>
+            </div>
+            <div id="content" style="margin:20px">
+                <div style="padding-bottom:20px">Click the button below to iinitialize the Property, Broker, and Favorite objects with sample data.
+                    <div style="color:red">All existing records in these objects will be deleted.</div></div>
+                <button class="slds-button slds-button--brand" onclick="initialize()">Initialize Sample Data</button>
+            </div>
+        </div>
+        
+        <script>
+    
+        var brokers = [
+            {
+                name: "Caroline Kingsley",
+                title: "Senior Broker",
+                phone: "617-244-3672",
+                mobile_phone: "617-244-3672",
+                email: "caroline@dreamhouse.demo",
+                picture: "https://s3-us-west-1.amazonaws.com/sfdc-demo/people/caroline_kingsley.jpg"
+            },
+            {
+                name: "Michael Jones",
+                title: "Senior Broker",
+                phone: "617-244-3672",
+                mobile_phone: "617-244-3672",
+                email: "michael@dreamhouse.demo",
+                picture: "https://s3-us-west-1.amazonaws.com/sfdc-demo/people/michael_jones.jpg"
+            },
+            {
+                name: "Jonathan Bradley",
+                title: "Senior Broker",
+                phone: "617-244-3672",
+                mobile_phone: "617-244-3672",
+                email: "jonathan@dreamhouse.demo",
+                picture: "https://s3-us-west-1.amazonaws.com/sfdc-demo/people/jonathan_bradley.jpg"
+            },
+            {
+                name: "Jennifer Wu",
+                title: "Senior Broker",
+                phone: "617-244-3672",
+                mobile_phone: "617-244-3672",
+                email: "jen@dreamhouse.demo",
+                picture: "https://s3-us-west-1.amazonaws.com/sfdc-demo/people/jennifer_wu.jpg"
+            },
+            {
+                name: "Olivia Green",
+                title: "Senior Broker",
+                phone: "617-244-3672",
+                mobile_phone: "617-244-3672",
+                email: "olivia@dreamhouse.demo",
+                picture: "https://s3-us-west-1.amazonaws.com/sfdc-demo/people/olivia_green.jpg"
+            },
+            {
+                name: "Miriam Aupont",
+                title: "Senior Broker",
+                phone: "617-244-3672",
+                mobile_phone: "617-244-3672",
+                email: "miriam@dreamhouse.demo",
+                picture: "https://s3-us-west-1.amazonaws.com/sfdc-demo/people/miriam_aupont.jpg"
+            },
+            {
+                name: "Michelle Lambert",
+                title: "Senior Broker",
+                phone: "617-244-3672",
+                mobile_phone: "617-244-3672",
+                email: "michelle@dreamhouse.demo",
+                picture: "https://s3-us-west-1.amazonaws.com/sfdc-demo/people/michelle_lambert.jpg"
+            },
+            {
+                name: "Victor Ochoa",
+                title: "Senior Broker",
+                phone: "617-244-3672",
+                mobile_phone: "617-244-3672",
+                email: "victor@dreamhouse.demo",
+                picture: "https://s3-us-west-1.amazonaws.com/sfdc-demo/people/victor_ochoa.jpg"
+            }
+            ];
+    
+        var properties = [
+          {
+            address: "18 Henry st",
+            city: "Cambridge",
+            state: "MA",
+            zip: "01742",
+            price: 975000,
+            title: "Stunning Victorian",
+            bedrooms: 4,
+            bathrooms: 3,
+            long: -71.11095,
+            lat: 42.35663,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house01.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house01sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 0
+          },
+          {
+            address: "24 Pearl st",
+            city: "Cambridge",
+            state: "MA",
+            zip: "02420",
+            price: 1200000,
+            title: "Ultimate Sophistication",
+            bedrooms: 5,
+            bathrooms: 4,
+            long: -71.10869,
+            lat: 42.359103,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house02.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house02sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 1
+          },
+          {
+            address: "72 Francis st",
+            city: "Boston",
+            state: "MA",
+            zip: "02420",
+            price: 825000,
+            title: "Modern City Living",
+            bedrooms: 5,
+            bathrooms: 4,
+            long: -71.106827,
+            lat: 42.335435,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house03.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house03sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 2
+          },
+          {
+            address: "32 Prince st",
+            city: "Cambridge",
+            state: "MA",
+            zip: "02420",
+            price: 930000,
+            title: "Stunning Colonial",
+            bedrooms: 5,
+            bathrooms: 4,
+            long: -71.110448,
+            lat: 42.360642,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house04.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house04sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 3
+          },
+          {
+            address: "110 Baxter street",
+            city: "Boston",
+            state: "MA",
+            zip: "02420",
+            price: 850000,
+            title: "Waterfront in the City",
+            bedrooms: 3,
+            bathrooms: 2,
+            long: -71.053943,
+            lat: 42.372486,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house05.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house05sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 4
+          },
+          {
+            address: "448 Hanover st",
+            city: "Boston",
+            state: "MA",
+            zip: "02420",
+            price: 725000,
+            title: "Quiet Retreat",
+            bedrooms: 4,
+            bathrooms: 2,
+            long: -71.052617,
+            lat: 42.366855,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house06.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house06sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 5
+          },
+          {
+            address: "127 Endicott st",
+            city: "Boston",
+            state: "MA",
+            zip: "02420",
+            price: 450000,
+            title: "City Living",
+            bedrooms: 3,
+            bathrooms: 1,
+            long: -71.057352,
+            lat: 42.365003,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house07.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house07sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 6
+          },
+          {
+            address: "48 Brattle st",
+            city: "Cambridge",
+            state: "MA",
+            zip: "02420",
+            price: 450000,
+            title: "Heart of Harvard Square",
+            bedrooms: 5,
+            bathrooms: 4,
+            long: -71.121653,
+            lat: 42.374117,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house10.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house10sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 7
+          },
+          {
+            address: "121 Harborwalk",
+            city: "Boston",
+            state: "MA",
+            zip: "02420",
+            price: 450000,
+            title: "Seaport District Retreat",
+            bedrooms: 3,
+            bathrooms: 3,
+            long: -71.049327,
+            lat: 42.35695,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house09.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house09sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 0
+          },
+          {
+            address: "640 Harrison Ave",
+            city: "Boston",
+            state: "MA",
+            zip: "02420",
+            price: 650000,
+            title: "City Living",
+            bedrooms: 2,
+            bathrooms: 2,
+            long: -71.068781,
+            lat: 42.339892,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house08.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house08sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 1
+          },
+          {
+            address: "95 Gloucester st",
+            city: "Boston",
+            state: "MA",
+            zip: "02420",
+            price: 690000,
+            title: "Architectural Details",
+            bedrooms: 3,
+            bathrooms: 3,
+            lat: 42.349693,
+            long: -71.084407,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house11.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house11sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 0
+          },
+          {
+            address: "145 Commonwealth ave",
+            city: "Boston",
+            state: "MA",
+            zip: "02420",
+            price: 845000,
+            title: "Contemporary Luxury",
+            bedrooms: 4,
+            bathrooms: 3,
+            lat: 42.352466,
+            long: -71.075311,
+            pic: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house12.jpg",
+            thumb: "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house12sq.jpg",
+            description: "Lorem ipsum dolor sit amet",
+            broker: 1
+          }
+        ];
+    
+        function initialize() {
+            
+            "use strict";
+    
+            DreamHouseSampleDataController.deleteAll(function(result, event) {
+                if (event.status) {
+                    load();
+				} else {
+                    alert("Something went wrong deleting existing records");
+				}
+			});
+
+        }
+        
+        function load() {
+
+            "use strict";
+
+            var broker = new SObjectModel.Broker();
+            var property = new SObjectModel.Property();
+    
+            for (var i=0; i<brokers.length; i++) {
+                let index = i;
+                broker.create(brokers[index], function(err, brokerId) {
+                    for (var j=0; j<properties.length; j++) {
+                        if (properties[j].broker == index) {
+                            properties[j].name = properties[j].address; 
+                            properties[j].status = "Available"; 
+                            properties[j].brokerId = brokerId[0]; 
+                            delete properties[j].broker; 
+                            property.create(properties[j], function(err, propertyId) {
+                                console.log(err || propertyId);
+                            });
+                        }
+                    }
+                });
+            }
+            
+            alert("Successfully imported " + properties.length + " properties and " + brokers.length + " brokers");
+    
+        }
+            
+        </script>
+        </body>
+    </html>    
+</apex:page>

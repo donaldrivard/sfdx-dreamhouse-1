@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<CustomField xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Property__c.Status__c'>
+  <fullName>Status__c</fullName>
+  <externalId>false</externalId>
+  <label>Status</label>
+  <picklist>
+    <picklistValues>
+      <fullName>Available</fullName>
+      <default>false</default>
+    </picklistValues>
+    <picklistValues>
+      <fullName>Under agreement</fullName>
+      <default>false</default>
+    </picklistValues>
+    <picklistValues>
+      <fullName>Sold</fullName>
+      <default>false</default>
+    </picklistValues>
+    <sorted>false</sorted>
+  </picklist>
+  <trackFeedHistory>true</trackFeedHistory>
+  <trackHistory>false</trackHistory>
+  <trackTrending>false</trackTrending>
+  <type>Picklist</type>
+</CustomField>

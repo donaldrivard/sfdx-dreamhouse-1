@@ -1,0 +1,26 @@
+<aura:component controller="PropertyController" 
+                implements="force:hasRecordId,flexipage:availableForAllPageTypes"
+                access="global">
+    
+    <aura:registerEvent name="change" type="c:MortgageChange"/>
+
+    <aura:attribute name="recordId" type="Id" default="a0236000003OBlcAAG"/>
+    <aura:attribute name="principal" type="String" default="200000"/>
+    <aura:attribute name="years" type="integer" default="30"/>
+    <aura:attribute name="rate" type="String" default="5"/>
+    <aura:attribute name="monthlyPayment" type="double"/>
+    
+    <aura:handler name="change" value="{!v.principal}" action="{!c.calculateMonthlyPayment}"/>
+    <aura:handler name="change" value="{!v.years}" action="{!c.calculateMonthlyPayment}"/>
+    <aura:handler name="change" value="{!v.rate}" action="{!c.calculateMonthlyPayment}"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div>
+        <ui:inputNumber aura:id="principal" label="Principal:" value="{!v.principal}" format="#"/>
+        <ui:inputNumber aura:id="years" label="Years:" value="{!v.years}"/>
+        <ui:inputNumber aura:id="rate" label="Rate:" value="{!v.rate}"/>
+        <h2>Monthly Payment: <ui:outputCurrency value="{!v.monthlyPayment}" class="principal"/></h2>
+    </div>
+
+</aura:component>

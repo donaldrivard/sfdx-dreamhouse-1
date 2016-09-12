@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<CustomField xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Property__c.Price__c'>
+  <fullName>Price__c</fullName>
+  <externalId>false</externalId>
+  <label>Price</label>
+  <precision>8</precision>
+  <required>false</required>
+  <scale>0</scale>
+  <trackFeedHistory>true</trackFeedHistory>
+  <trackHistory>true</trackHistory>
+  <trackTrending>false</trackTrending>
+  <type>Currency</type>
+</CustomField>

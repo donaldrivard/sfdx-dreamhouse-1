@@ -1,0 +1,76 @@
+{
+  "settings": {
+    "outputDir": "$env.RUN_ARTIFACT_DIR"
+  },
+  "orgs": [
+    {
+      "name": "org-1",
+      "definition": {
+        "Company": "Test Org $DATETIME[x]",
+        "Country": "US",
+        "LastName": "House",
+        "SignupEmail": "peter.hale@salesforce.com",
+        "Username": "dev@$DATETIME[x].org",
+        "Edition": "editionDefinition/force.com/DeveloperEdition"
+      }
+    }
+  ],
+  "suites": [
+    {
+      "name": "basic-tests",
+      "categories": [
+        {
+          "type": "apex",
+          "tests": [
+            "PostPriceChangeToSlackTest","PropertyControllerTest"
+          ]
+        }
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "name": "environment-1",
+      "orgs": [
+        "org-1"
+      ]
+    }
+  ],
+  "invocations": [
+    {
+      "name": "test",
+      "environments": [
+        "environment-1"
+      ],
+      "suites": [
+        "basic-tests"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "name": "ls-al-jsonfiles",
+      "exec": "ls -al",
+      "args": ["*.json"]
+    },
+    {
+      "name": "pwd",
+      "exec": "pwd"
+    }
+  ],
+  "contexts": [
+    {
+      "name": "local"
+    }
+  ],
+  "profiles": [
+    {
+      "name": "basic",
+      "default": true,
+      "context": "local",
+      "invocations": [
+        "test"
+      ]
+    }
+  ]
+}

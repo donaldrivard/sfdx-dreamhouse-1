@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<QuickAction xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Property__c.Smart_Home'>
+  <height>600</height>
+  <label>Smart Home</label>
+  <optionsCreateFeedItem>false</optionsCreateFeedItem>
+  <page>SmartHome</page>
+  <type>VisualforcePage</type>
+  <width>-100</width>
+</QuickAction>

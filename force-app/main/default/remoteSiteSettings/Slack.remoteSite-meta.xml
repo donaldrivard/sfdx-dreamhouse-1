@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<RemoteSiteSetting xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Slack'>
+  <disableProtocolSecurity>false</disableProtocolSecurity>
+  <isActive>true</isActive>
+  <url>https://hooks.slack.com</url>
+</RemoteSiteSetting>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CustomTab xmlns="urn:metadata.tooling.soap.sforce.com" fqn="Smart_Home">
+	<label>Smart Home</label>
+	<mobileReady>false</mobileReady>
+	<motif>Custom33: Desk</motif>
+	<page>SmartHome</page>
+</CustomTab>

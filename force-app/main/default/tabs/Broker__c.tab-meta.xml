@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CustomTab xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Broker__c'>
+  <customObject>true</customObject>
+  <mobileReady>false</mobileReady>
+  <motif>Custom84: Presenter</motif>
+</CustomTab>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CustomApplication xmlns='urn:metadata.tooling.soap.sforce.com' fqn='DreamHouse'>
+  <defaultLandingTab>standard-home</defaultLandingTab>
+  <description>DreamHouse helps you connect with your Customers in a whole new way.</description>
+  <formFactors>Large</formFactors>
+  <label>DreamHouse</label>
+  <!-- logo not supported at API 38
+  <logo>Communities_Shared_Document_Folder/DreamHouzz_Logo.png</logo>
+  -->
+  <tab>Property__c</tab>
+  <tab>Broker__c</tab>
+  <tab>Sample_Data_Import</tab>
+  <tab>Property_Explorer</tab>
+</CustomApplication>

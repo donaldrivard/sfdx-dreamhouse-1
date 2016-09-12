@@ -1,0 +1,109 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Property__c",
+        "referenceId": "18HenryStRef"
+      },
+      "Name": "Stunning Victorian",
+      "Address__c": "18 Henry st",
+      "City__c": "Cambridge",
+      "State__c": "MA",
+      "Zip__c": "01742",
+      "Price__c": 975000,
+      "Title__c": "Stunning Victorian",
+      "Beds__c": 4,
+      "Baths__c": 3,
+      "Location__Longitude__s": -71.11095,
+      "Location__Latitude__s": 42.35663,
+      "Picture__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house01.jpg",
+      "Thumbnail__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house01sq.jpg",
+      "Description__c": "Lorem ipsum dolor sit amet",
+      "Broker__c": "@CarolineBrookerRef"
+    },
+    {
+      "attributes": {
+        "type": "Property__c",
+        "referenceId": "121HarborwalkRef"
+      },
+      "Name": "Seaport District Retreat",
+      "Address__c": "121 Harborwalk",
+      "City__c": "Boston",
+      "State__c": "MA",
+      "Zip__c": "02420",
+      "Price__c": 450000,
+      "Title__c": "Seaport District Retreat",
+      "Beds__c": 3,
+      "Baths__c": 3,
+      "Location__Longitude__s": -71.049327,
+      "Location__Latitude__s": 42.35695,
+      "Picture__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house09.jpg",
+      "Thumbnail__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house09sq.jpg",
+      "Description__c": "Lorem ipsum dolor sit amet",
+      "Broker__c": "@CarolineBrookerRef"
+    },
+    {
+      "attributes": {
+        "type": "Property__c",
+        "referenceId": "95GloucesterStRef"
+      },
+      "Name": "Architectural Details",
+      "Address__c": "95 Gloucester st",
+      "City__c": "Boston",
+      "State__c": "MA",
+      "Zip__c": "02420",
+      "Price__c": 690000,
+      "Title__c": "Architectural Details",
+      "Beds__c": 3,
+      "Baths__c": 3,
+      "Location__Latitude__s": 42.349693,
+      "Location__Longitude__s": -71.084407,
+      "Picture__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house11.jpg",
+      "Thumbnail__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house11sq.jpg",
+      "Description__c": "Lorem ipsum dolor sit amet",
+      "Broker__c": "@CarolineBrookerRef"
+    },
+    {
+      "attributes": {
+        "type": "Property__c",
+        "referenceId": "72FrancisStRef"
+      },
+      "Name": "Modern City Living",
+      "Address__c": "72 Francis st",
+      "City__c": "Boston",
+      "State__c": "MA",
+      "Zip__c": "02420",
+      "Price__c": 825000,
+      "Title__c": "Modern City Living",
+      "Beds__c": 5,
+      "Baths__c": 4,
+      "Location__Longitude__s": -71.106827,
+      "Location__Latitude__s": 42.335435,
+      "Picture__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house03.jpg",
+      "Thumbnail__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house03sq.jpg",
+      "Description__c": "Lorem ipsum dolor sit amet",
+      "Broker__c": "@JenniferWuRef"
+    },
+    {
+      "attributes": {
+        "type": "Property__c",
+        "referenceId": "640HarrisonAveRef"
+      },
+      "Name": "City Living",
+      "Address__c": "640 Harrison Ave",
+      "City__c": "Boston",
+      "State__c": "MA",
+      "Zip__c": "02420",
+      "Price__c": 650000,
+      "Title__c": "City Living",
+      "Beds__c": 2,
+      "Baths__c": 2,
+      "Location__Longitude__s": -71.068781,
+      "Location__Latitude__s": 42.339892,
+      "Picture__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house08.jpg",
+      "Thumbnail__c": "https://s3-us-west-1.amazonaws.com/sfdc-demo/realty/house08sq.jpg",
+      "Description__c": "Lorem ipsum dolor sit amet",
+      "Broker__c": "@MichaelJonesRef"
+    }
+  ]
+}

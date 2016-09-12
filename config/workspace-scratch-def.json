@@ -1,0 +1,10 @@
+{
+  "Company": "Dreamhouse Developer Workspace NNS",
+  "Country": "US",
+  "LastName": "Robinson",
+  "SignupEmail": "jwunderlich@salesforce.com",
+  "Edition": "Developer",
+  "OrgPreferences" : {
+    "S1DesktopEnabled" : true
+  }
+}

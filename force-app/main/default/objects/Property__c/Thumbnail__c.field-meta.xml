@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<CustomField xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Property__c.Thumbnail__c'>
+  <fullName>Thumbnail__c</fullName>
+  <externalId>false</externalId>
+  <label>Thumbnail</label>
+  <required>false</required>
+  <trackFeedHistory>false</trackFeedHistory>
+  <trackHistory>false</trackHistory>
+  <trackTrending>false</trackTrending>
+  <type>Url</type>
+</CustomField>

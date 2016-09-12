@@ -1,0 +1,50 @@
+{
+    "name": "Dreamhouse Force.com Demo",
+    "description": "Dreamforce Force.com Applicaiton demonstrating Force.com and Heroku Integration",
+    "repository": "https://github.com/forcedotcom/dreamhouse-acdx",
+    "logo": "https://avatars0.githubusercontent.com/u/464563?v=3&s=200",
+    "keywords": [
+        "salesforce",
+        "force.com",
+        "heroku"
+    ],
+    "addons": [
+        "salesforce"
+    ],
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/salesforce-buildpack#cwall/appcloud-plugin"
+        }
+    ],
+    "scripts": {
+        "test-setup": "echo 'test-setup here!'",
+        "test": "sh .salesforce/test"
+    },
+    "env": {
+        "HEROKU_APP_NAME": {
+            "description": "Provided by the Heroku platform; only set when required:true",
+            "required": true
+        },
+        "HEROKU_API_TOKEN": {
+            "description": "FIXME: Can we remove once 'wait for add-ons to be provisioned before build' is merged and enabled on app?  Used to query for config vars.  When SALESFORCE_URL is available, buildpack will push and retrieve and/or deploy depending on if repo is in AC/DX workspace or Metadata API file structure.",
+            "value": "6a2d3a3c-f3d5-4727-8ea3-d844ccb9e078"
+        },
+        "SALESFORCE_BUILDPACK_VERBOSE": {
+            "description": "Turns on additional buildpack logging.",
+            "value": "true"
+        },
+        "SALESFORCE_ADDON_POLL_TIMEOUT_MS": {
+            "description": ".",
+            "value": "180001"
+        },
+        "SALESFORCE_ADDON_POLL_INTERVAL_MS": {
+            "description": ".",
+            "value": "10000"
+        },
+        "SALESFORCE_HUB_URL": {
+            "description": "Required for Review apps to create orgs",
+            "required": true
+        }
+    }
+}
+

@@ -1,0 +1,14 @@
+<aura:component >
+
+    <aura:attribute name="type" type="String"/>
+    <aura:attribute name="size" type="String"/>
+    
+    <span aura:id="svg_content">
+    <![CDATA[
+    <svg aria-hidden="true" class="slds-button__icon slds-button__icon{!v.size}">
+    	<use xlink:href="/resource/SLDS100/assets/icons/utility-sprite/svg/symbols.svg#{!v.type}"></use>
+	</svg>
+	]]>
+    </span>    
+
+</aura:component>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<CustomTab xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Property_Explorer'>
+  <auraComponent>PropertyExplorer</auraComponent>
+  <label>Property Explorer</label>
+  <mobileReady>false</mobileReady>
+  <motif>Custom78: Map</motif>
+</CustomTab>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<CompactLayout xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Broker__c.Broker_Compact'>
+  <fullName>Broker_Compact</fullName>
+  <fields>Name</fields>
+  <fields>Title__c</fields>
+  <fields>Phone__c</fields>
+  <fields>Mobile_Phone__c</fields>
+  <fields>Email__c</fields>
+  <label>Broker Compact</label>
+</CompactLayout>

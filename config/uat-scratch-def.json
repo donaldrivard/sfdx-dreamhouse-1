@@ -1,0 +1,10 @@
+{
+  "Company": "Dreamhouse UAT",
+  "Country": "US",
+  "LastName": "Robinson",
+  "SignupEmail": "<user>@salesforce.com",
+  "Edition": "Enterprise",
+  "OrgPreferences" : {
+    "S1DesktopEnabled" : true
+  }
+}

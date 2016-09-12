@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "node ./node_modules/.bin/forever -c 'node --use_strict' --spinSleepTime 1 --minUptime 1000 ./node_modules/.bin/rejoice -c ./pokemonizer/manifest.js -p ./pokemonizer/plugins"
+  },
+  "engines": {
+    "node": "6.x.x",
+    "npm": "3.x.x"
+  },
+  "dependencies": {
+    "forever": "0.15.2",
+    "gm": "^1.23.0",
+    "hapi": "14.2.0",
+    "rejoice": "3.2.0",
+    "request": "^2.74.0"
+  }
+}

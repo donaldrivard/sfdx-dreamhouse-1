@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<CustomField xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Property__c.City__c'>
+  <fullName>City__c</fullName>
+  <externalId>false</externalId>
+  <label>City</label>
+  <length>50</length>
+  <required>false</required>
+  <trackFeedHistory>false</trackFeedHistory>
+  <trackHistory>false</trackHistory>
+  <trackTrending>false</trackTrending>
+  <type>Text</type>
+  <unique>false</unique>
+</CustomField>
