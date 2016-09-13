@@ -30,10 +30,6 @@ SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
 # Set a password for the admin user and write it out to the log
 #npm run set-org-password
 
-# Install AppCloud and Force CLI plugins
-chmod +x $SCRIPT_DIR/install-cli-plugins.sh
-sh $SCRIPT_DIR/install-cli-plugins.sh
-
 # Perform extra org setup
 chmod +x $SCRIPT_DIR/extra-org-setup.sh
 sh $SCRIPT_DIR/extra-org-setup.sh

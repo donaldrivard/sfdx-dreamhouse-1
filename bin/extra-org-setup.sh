@@ -20,7 +20,9 @@ SCRATCH_ORG=org@salesforce.com
 HEROKU_CLIENT=heroku
 
 runCmd() {
-    cmnd="$*"
+    local cmnd="$*"
+    local ret_code
+
     echo $cmnd
     eval $cmnd
     ret_code=$?
@@ -31,12 +33,14 @@ runCmd() {
 }
 
 # Set perms on apps and objects
-typeset ret_code
 echo "Enabling Dreamhouse PermissionSet for App and SObject visibility..."
 runCmd "$HEROKU_CLIENT force:permset:assign --targetname $SCRATCH_ORG --name DreamHouse"
 
-# Load the Properties, Favorites, & Brokers into the Salesforce org
-echo "Loading Dreamhouse data..."
-runCmd "$HEROKU_CLIENT force:data:import --targetname $SCRATCH_ORG --plan data/brokers-properties-plan.json"
+
+if [ ! "$SALESFORCE_PRODUCTION" ]; then
+    # Load the Properties, Favorites, & Brokers into the Salesforce org
+    echo "Loading Dreamhouse data..."
+    runCmd "$HEROKU_CLIENT force:data:import --targetname $SCRATCH_ORG --plan data/brokers-properties-plan.json"
+fi
 
 exit 0

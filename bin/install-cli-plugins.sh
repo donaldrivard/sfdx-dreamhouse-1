@@ -14,7 +14,7 @@
 HEROKU_CLIENT=heroku
 if type "$HEROKU_CLIENT" &> /dev/null; then
     echo "Installing AppCloud and Force CLI Plugins..."
-    $HEROKU_CLIENT plugins:install salesforce-alm-dev
+    $HEROKU_CLIENT plugins:install salesforce-alm-buildpack-dev
     $HEROKU_CLIENT plugins:install force-cli-dev
 
     echo "Installed Heroku Plugins:"

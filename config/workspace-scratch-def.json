@@ -1,9 +1,9 @@
 {
-  "Company": "Dreamhouse Developer Workspace NNS",
+  "Company": "ACME Org",
   "Country": "US",
-  "LastName": "Robinson",
-  "SignupEmail": "jwunderlich@salesforce.com",
-  "Edition": "Developer",
+  "LastName": "Wegner",
+  "SignupEmail": "wade.wegner@salesforce.com",
+  "TemplateId": "0TTB0000000A6Bd",
   "OrgPreferences" : {
     "S1DesktopEnabled" : true
   }
