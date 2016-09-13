@@ -19,6 +19,7 @@
             reader.onloadend = function(e) {
                 var dataURL = e.target.result;
                 component.set("v.pictureURL", dataURL);
+                
                 //helper.upload(component, file, dataURL.match(/,(.*)$/)[1]);
             };
             component.set("v.tags", []);
