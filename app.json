@@ -25,10 +25,10 @@
             "description": "Provided by the Heroku platform; only set when required:true",
             "required": true
         },
-        "HEROKU_API_TOKEN": {
-            "description": "FIXME: Can we remove once 'wait for add-ons to be provisioned before build' is merged and enabled on app?  Used to query for config vars.  When SALESFORCE_URL is available, buildpack will push and retrieve and/or deploy depending on if repo is in AC/DX workspace or Metadata API file structure.",
-            "value": "6a2d3a3c-f3d5-4727-8ea3-d844ccb9e078"
-        },
+        // "HEROKU_API_TOKEN": {
+        //     "description": "FIXME: Can we remove once 'wait for add-ons to be provisioned before build' is merged and enabled on app?  Used to query for config vars.  When SALESFORCE_URL is available, buildpack will push and retrieve and/or deploy depending on if repo is in AC/DX workspace or Metadata API file structure.",
+        //     "value": "6a2d3a3c-f3d5-4727-8ea3-d844ccb9e078"
+        // },
         "SALESFORCE_BUILDPACK_VERBOSE": {
             "description": "Turns on additional buildpack logging.",
             "value": "true"
@@ -47,4 +47,3 @@
         }
     }
 }
-
