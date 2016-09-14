@@ -69,7 +69,7 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
-            <componentName>c:Pokemon</componentName>
+            <componentName>c:IQPictureUploader</componentName>
         </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>
