@@ -3,6 +3,24 @@
   <fullName>Status__c</fullName>
   <externalId>false</externalId>
   <label>Status</label>
+  <valueSet>
+  <valueSetDefinition>
+    <sorted>false</sorted>
+    <value>
+      <fullName>Available</fullName>
+      <default>false</default>
+    </value>
+    <value>
+      <fullName>Under agreement</fullName>
+      <default>false</default>
+    </value>
+    <value>
+      <fullName>Sold</fullName>
+      <default>false</default>
+    </value>
+  </valueSetDefinition>
+  </valueSet>
+<!--
   <picklist>
     <picklistValues>
       <fullName>Available</fullName>
@@ -18,6 +36,7 @@
     </picklistValues>
     <sorted>false</sorted>
   </picklist>
+-->
   <trackFeedHistory>true</trackFeedHistory>
   <trackHistory>false</trackHistory>
   <trackTrending>false</trackTrending>
