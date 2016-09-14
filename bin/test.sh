@@ -6,10 +6,12 @@
 # which testrunner profile to use.
 
 PROFILE="basic"
-echo $PROFILE
+
 if [ $HEROKU_TEST_RUN_BRANCH = "master" ]
 then
-   PROFILE=$HEROKU_TEST_RUN_BRANCH
+    # TODO enable once selenium works on heroku ci
+    #PROFILE=$HEROKU_TEST_RUN_BRANCH
+   PROFILE="basic"
 fi
 
 CMD="force:test -c testrunner/simple.json -p $PROFILE -r tap"
