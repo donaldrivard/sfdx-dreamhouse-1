@@ -55,7 +55,8 @@
                 "dreamhouse"
             ],
             "suites": [
-                "basic-apex"
+                "basic-apex",
+                "integration"
             ]
         },{
             "name": "all-tests",
@@ -114,7 +115,12 @@
         {
             "name": "local",
             "useWorkspaceOrg": true,
-            "pushSource": false
+            "pushSource": false,
+            "beforeTests": [
+                "download-selenium-client",
+                "unzip-selenium-client",
+                "compile"
+            ]
         },
         {
             "name": "heroku-ci",

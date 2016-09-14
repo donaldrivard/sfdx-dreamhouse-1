@@ -5,3 +5,7 @@
 .settings
 node_modules
 .idea
+
+selenium-client-jars/
+selenium-java-3.0.0-beta3.zip
+testArtifacts/
