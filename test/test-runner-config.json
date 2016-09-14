@@ -1,0 +1,144 @@
+{
+    "settings": {
+        "outputDir": "$env.RUN_ARTIFACT_DIR",
+        "selenium": true
+    },
+    "orgs": [
+        {
+            "name": "dreamhouse-default",
+            "definition": "config/workspace-scratch-def.json"
+        }
+    ],
+    "suites": [
+        {
+            "name": "basic-apex",
+            "categories": [
+                {
+                    "type": "apex",
+                    "tests": [
+                        "PostPriceChangeToSlackTest",
+                        "PropertyControllerTest"
+                    ]
+                }
+            ]
+        },{
+            "name": "integration",
+            "categories": [
+                {
+                    "type": "integration",
+                    "tests": ["test.integration.IntegrationTest"]
+                }
+            ]
+        }
+    ],
+    "data": [
+        {
+            "name": "dreamhouse",
+            "file": "data/brokers-properties-plan.json"
+        }
+    ],
+    "environments": [
+        {
+            "name": "dreamhouse",
+            "orgs": [
+                "dreamhouse-default"
+            ],
+            "data": [
+                "dreamhouse"
+            ]
+        }
+    ],
+    "invocations": [
+        {
+            "name": "basic",
+            "environments": [
+                "dreamhouse"
+            ],
+            "suites": [
+                "basic-apex"
+            ]
+        },{
+            "name": "all-tests",
+            "environments": [
+                "dreamhouse"
+            ],
+            "suites": [
+                "basic-apex",
+                "integration"
+            ]
+        }
+    ],
+    "operations": [
+        {
+            "name": "download-selenium-client",
+            "exec": "curl",
+            "args": [
+                "-O",
+                "http://selenium-release.storage.googleapis.com/3.0-beta3/selenium-java-3.0.0-beta3.zip"
+            ]
+        },
+        {
+            "name": "unzip-selenium-client",
+            "exec": "unzip",
+            "args": [
+                "-o",
+                "selenium-java-3.0.0-beta3.zip",
+                "-d selenium-client-jars"
+            ]
+        },
+        {
+            "name": "compile",
+            "exec": "javac",
+            "args": [
+                "-cp .:selenium-client-jars/client-combined-3.0.0-beta3-nodeps.jar:selenium-client-jars/lib/*",
+                "-d $outputDir",
+                "test/integration/BaseSalesforceTest.java",
+                "test/integration/IntegrationTest.java"
+            ]
+        },
+        {
+            "name": "integration",
+            "env": {
+                "SALESFORCE_ACCESS_TOKEN": "$ORG_ACCESSTOKEN",
+                "SALESFORCE_INSTANCE_URL": "$ORG_INSTANCEURL"
+            },
+            "exec": "java",
+            "args": [
+                "-cp .:selenium-client-jars/client-combined-3.0.0-beta3-nodeps.jar:$outputDir:selenium-client-jars/lib/*:force-app",
+                "org.junit.runner.JUnitCore",
+                "$TESTS"
+            ]
+        }
+    ],
+    "contexts": [
+        {
+            "name": "local",
+            "useWorkspaceOrg": true,
+            "pushSource": false
+        },
+        {
+            "name": "heroku-ci",
+            "beforeTests": [
+                "download-selenium-client",
+                "unzip-selenium-client",
+                "compile"
+            ]
+        }
+    ],
+    "profiles": [
+        {
+            "name": "basic",
+            "context": "local",
+            "invocations": [
+                "basic"
+            ]
+        },{
+            "name": "master",
+            "default": true,
+            "context": "heroku-ci",
+            "invocations": [
+                "all-tests"
+            ]
+        }
+    ]
+}

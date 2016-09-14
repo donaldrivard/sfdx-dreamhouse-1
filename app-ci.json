@@ -16,18 +16,16 @@
             "url": "https://github.com/heroku/salesforce-buildpack#cwall/appcloud-plugin"
         }
     ],
+    "scripts": {
+        "test": "bin/test.sh"
+    },
     "env": {
-        "HEROKU_APP_NAME": {
-            "description": "Provided by the Heroku platform; only set when required:true",
-            "required": true
-        },
+        "HEROKU_APP_NAME": "-pr-0",
+        "SALESFORCE_HUB_URL": "force://3MVG9SemV5D80oBfPBCgboxuJ9df3F8MrzZxhqU5qeUb5MoRs.vuBNHRhhdMh2WDeh5cFiAXcv9z2PnZ7CScu:7278165525231799669:5Aep8614XGwzVzzTO6qBJOvmrMfeAZ4Sc3uO0RDrLGdXsjdUptJNEncPW1UWhP9ETgwIKtxUjgG4cFovYohFrnr@adcxgs0hub.my.salesforce.com",
+        "RUN_ARTIFACT_DIR": "./tests",
         "SALESFORCE_BUILDPACK_VERBOSE": {
             "description": "Turns on additional buildpack logging.",
             "value": "true"
-        },
-        "SALESFORCE_HUB_URL": {
-            "description": "Required for Review apps to create orgs",
-            "required": true
         }
     }
 }
