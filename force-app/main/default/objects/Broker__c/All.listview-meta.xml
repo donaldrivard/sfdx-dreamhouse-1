@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
-<ListView xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Broker__c.All'>
-  <fullName>All</fullName>
-  <columns>NAME</columns>
-  <filterScope>Everything</filterScope>
-  <label>All</label>
-</ListView>
