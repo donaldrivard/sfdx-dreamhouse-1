@@ -72,10 +72,11 @@
     "operations": [
         {
             "name": "download-selenium-client",
-            "exec": "curl",
+            "exec": "if [ ! -f \"testartifacts/selenium-java.zip\" ]; then curl",
             "args": [
-                "-O",
-                "http://selenium-release.storage.googleapis.com/3.0-beta3/selenium-java-3.0.0-beta3.zip"
+                "-o $outputDir/selenium-java.zip",
+                "http://selenium-release.storage.googleapis.com/3.0-beta3/selenium-java-3.0.0-beta3.zip",
+                "; else echo \"Selenium client zip exist\"; fi"
             ]
         },
         {
@@ -83,15 +84,15 @@
             "exec": "unzip",
             "args": [
                 "-o",
-                "selenium-java-3.0.0-beta3.zip",
-                "-d selenium-client-jars"
+                "$outputDir/selenium-java",
+                "-d $outputDir/selenium-client-jars"
             ]
         },
         {
             "name": "compile",
             "exec": "javac",
             "args": [
-                "-cp .:selenium-client-jars/client-combined-3.0.0-beta3-nodeps.jar:selenium-client-jars/lib/*",
+                "-cp .:$outputDir/selenium-client-jars/client-combined-3.0.0-beta3-nodeps.jar:$outputDir/selenium-client-jars/lib/*",
                 "-d $outputDir",
                 "test/integration/BaseSalesforceTest.java",
                 "test/integration/IntegrationTest.java"
@@ -105,7 +106,7 @@
             },
             "exec": "java",
             "args": [
-                "-cp .:selenium-client-jars/client-combined-3.0.0-beta3-nodeps.jar:$outputDir:selenium-client-jars/lib/*:force-app",
+                "-cp .:$outputDir/selenium-client-jars/client-combined-3.0.0-beta3-nodeps.jar:$outputDir:$outputDir/selenium-client-jars/lib/*:force-app",
                 "org.junit.runner.JUnitCore",
                 "$TESTS"
             ]
