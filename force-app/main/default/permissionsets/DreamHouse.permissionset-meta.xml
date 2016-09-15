@@ -41,10 +41,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>DreamHouseSampleDataController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>PropertyController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -224,10 +220,6 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>DreamHouseSampleData</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>SmartHome</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -241,10 +233,6 @@
     </tabSettings>
     <tabSettings>
         <tab>Property__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Sample_Data_Import</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
