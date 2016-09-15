@@ -28,6 +28,10 @@
         "SALESFORCE_HUB_URL": {
             "description": "Required for Review apps to create orgs",
             "required": true
+        },
+        "SALESFORCE_START_URL": {
+            "description": "Required for Review apps to redirect to this startURL",
+            "required": true
         }
     }
 }
