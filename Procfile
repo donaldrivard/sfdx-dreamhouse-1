@@ -1,4 +1,5 @@
 release: bin/release
 
-#web: npm start
-web: python bin/redirect-to-salesforce.py
+# redirect from heroku app domain to salesforce org;
+# script dependencies install in salesforce buildpack
+web: node utils/redirect-to-salesforce.js

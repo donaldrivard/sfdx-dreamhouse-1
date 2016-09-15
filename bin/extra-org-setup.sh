@@ -8,8 +8,7 @@
 #   - Loads sample data.
 #
 # Requires Heroku CLI and AppCloud and Force.com CLI
-# plugins.  See install-cli-plugins.sh.  Heroku CLI
-# installed by Salesforce Buildpack.
+# plugins which are installed by Salesforce Buildpack.
 ##
 
 # Debug, echo every command
