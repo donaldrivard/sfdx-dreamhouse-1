@@ -1,7 +1,7 @@
 #!groovy
 node {
 	def SERIAL = System.currentTimeMillis()
-	def BRANCH = 'master'
+	def BRANCH = env.BRANCH_NAME
 	def BUILD_NUMBER=env.BUILD_NUMBER
 	def ORG_DEF_JSON_FILE="dhci-org-def-${BRANCH}-${BUILD_NUMBER}-pr.json"
 	def SUB_ORG_DEF_JSON_FILE="dhci-sub-org-def-${BRANCH}-${BUILD_NUMBER}-pr.json"
@@ -16,7 +16,6 @@ node {
 	def SIGN_UP_EMAIL=env.SIGN_UP_EMAIL
 	def API_VERSION=env.API_VERSION
 	def toolbelt = tool 'toolbelt'
-	def ppwd = sh returnStdout:true, script: 'pwd'
 
 	stage('checkout source') {
 		// when running in multi-branch job, one must issue this command
@@ -87,8 +86,6 @@ node {
 		if (rc != 0) {
 			error 'push all failed'
 		}
-		// assign permset
-
 	}
 
 	stage('Run Apex Test') {
