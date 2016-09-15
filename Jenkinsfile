@@ -23,14 +23,20 @@ node {
 		checkout scm
 	}
 
+	// to save runtime - it is probably best that toolbelt be installed as a Jenkins setup step
+	// rather than installing each time a job is run
 	stage('Install Toolbelt') {
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku plugins:install salesforce-alm-dev"
-		if (rc != 0) {
-			error 'toolbelt install failed'
-		}
+		// check to see if install of toolbelt is necessary
 		rc = sh returnStatus: true, script: "${toolbelt}/heroku force --help"
 		if (rc != 0) {
-			error 'toolbelt install verification failed'
+			rc = sh returnStatus: true, script: "${toolbelt}/heroku plugins:install salesforce-alm-dev"
+			if (rc != 0) {
+				error 'toolbelt install failed'
+			}
+			rc = sh returnStatus: true, script: "${toolbelt}/heroku force --help"
+			if (rc != 0) {
+				error 'toolbelt install verification failed'
+			}
 		}
 	}
 
