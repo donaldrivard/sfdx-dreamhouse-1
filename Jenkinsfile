@@ -23,17 +23,17 @@ node {
 		checkout scm
 	}
 
-	stage('Install Toolbelt') {
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku plugins:install salesforce-alm-dev"
-		if (rc != 0) {
-			error 'toolbelt install failed'
-		}
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku force --help"
-		if (rc != 0) {
-			error 'toolbelt install verification failed'
-		}
-	}
-
+//	stage('Install Toolbelt') {
+//		rc = sh returnStatus: true, script: "${toolbelt}/heroku plugins:install salesforce-alm-dev"
+//		if (rc != 0) {
+//			error 'toolbelt install failed'
+//		}
+//		rc = sh returnStatus: true, script: "${toolbelt}/heroku force --help"
+//		if (rc != 0) {
+//			error 'toolbelt install verification failed'
+//		}
+//	}
+//
 	stage('Create Scratch Org') {
 		// modify workspace file to point to correct Salesforce App Server
 		sh "mkdir -p ${RUN_ARTIFACT_DIR}"
