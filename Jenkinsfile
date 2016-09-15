@@ -23,17 +23,17 @@ node {
 		checkout scm
 	}
 
-	stage('Install Toolbelt') {
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku plugins:install salesforce-alm-dev"
-		if (rc != 0) {
-			error 'toolbelt install failed'
-		}
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku force --help"
-		if (rc != 0) {
-			error 'toolbelt install verification failed'
-		}
-	}
-
+//	stage('Install Toolbelt') {
+//		rc = sh returnStatus: true, script: "${toolbelt}/heroku plugins:install salesforce-alm-dev"
+//		if (rc != 0) {
+//			error 'toolbelt install failed'
+//		}
+//		rc = sh returnStatus: true, script: "${toolbelt}/heroku force --help"
+//		if (rc != 0) {
+//			error 'toolbelt install verification failed'
+//		}
+//	}
+//
 	stage('Create Scratch Org') {
 		// modify workspace file to point to correct Salesforce App Server
 		sh "mkdir -p ${RUN_ARTIFACT_DIR}"
@@ -60,7 +60,7 @@ node {
 
 		writeFile encoding: 'utf-8', file: "${RUN_ARTIFACT_DIR}/${ORG_DEF_JSON_FILE}", text: orgDef
 
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku force:org:authorize -i ${CONNECTED_APP_CONSUMER_KEY} -u ${HUB_ORG} -f ${HUB_KEY} -y debug"
+		rc = sh returnStatus: true, script: "echo HOME:$HOME; ${toolbelt}/heroku force:org:authorize -i ${CONNECTED_APP_CONSUMER_KEY} -u ${HUB_ORG} -f ${HUB_KEY} -y debug"
 		if (rc != 0) {
 			error 'hub org authorization failed'
 		}
