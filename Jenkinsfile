@@ -93,7 +93,7 @@ node {
 
 	stage('Run Apex Test') {
 		timeout(time: 120, unit: 'SECONDS') {
-			rc = sh returnStatus: true, script: "${toolbelt}/heroku force:apex:test --testlevel local --testartifactdir ${RUN_ARTIFACT_DIR} --reporter tap --targetname ${SFDC_USERNAME} -y debug"
+			rc = sh returnStatus: true, script: "${toolbelt}/heroku force:apex:test --testlevel RunLocalTests --testartifactdir ${RUN_ARTIFACT_DIR} --reporter tap --targetname ${SFDC_USERNAME} -y debug"
 			if (rc != 0) {
 				error 'apex test run failed'
 			}
