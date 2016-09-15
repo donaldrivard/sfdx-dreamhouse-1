@@ -6,10 +6,7 @@
     "orgs": [
         {
             "name": "dreamhouse-default",
-            "definition": "config/workspace-scratch-def.json",
-            "data": [
-                "dreamhouse"
-            ]
+            "definition": "config/workspace-scratch-def.json"
         }
     ],
     "suites": [
@@ -31,12 +28,6 @@
                     "tests": ["test.integration.IntegrationTest"]
                 }
             ]
-        }
-    ],
-    "data": [
-        {
-            "name": "dreamhouse",
-            "plan": "data/brokers-properties-plan.json"
         }
     ],
     "environments": [
