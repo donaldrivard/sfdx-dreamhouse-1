@@ -14,7 +14,7 @@ public class IntegrationTest extends BaseSalesforceTest {
         final String pageSrc = this.login("/one/one.app");
         WebElement e = this.fluentWait(new By.ByCssSelector(".oneContent h2"));
         Assert.assertTrue("One.app was not loaded", e.isDisplayed());		
-
+//
 //         final String pageSrc = this.login("/one/one.app#/sObject/Property__c/home");
 //         // Salesforce retUrl will strip the hash. Selenium driver.get() will hang on a hash.
 //         // SO set the hash manually.
