@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
-<ListView xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Favorite__c.All'>
-  <fullName>All</fullName>
-  <columns>NAME</columns>
-  <columns>Property__c</columns>
-  <filterScope>Everything</filterScope>
-  <label>All</label>
-</ListView>

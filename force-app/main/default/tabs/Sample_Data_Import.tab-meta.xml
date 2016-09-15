@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<CustomTab xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Sample_Data_Import'>
-  <label>Data Import</label>
-  <mobileReady>false</mobileReady>
-  <motif>Custom19: Wrench</motif>
-  <page>DreamHouseSampleData</page>
-</CustomTab>
