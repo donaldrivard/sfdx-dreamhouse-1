@@ -16,7 +16,6 @@
                 {
                     "type": "apex",
                     "tests": [
-                        "PostPriceChangeToSlackTest",
                         "PropertyControllerTest"
                     ]
                 }
