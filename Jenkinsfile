@@ -1,7 +1,7 @@
 #!groovy
 node {
 	def SERIAL = System.currentTimeMillis()
-	def BRANCH = env.BRANCH_NAME
+	def BRANCH = env.BRANCH_NAME.replaceAll(/[\/\\]/, '')
 	def BUILD_NUMBER=env.BUILD_NUMBER
 	def ORG_DEF_JSON_FILE="dhci-org-def-${BRANCH}-${BUILD_NUMBER}-pr.json"
 	def SUB_ORG_DEF_JSON_FILE="dhci-sub-org-def-${BRANCH}-${BUILD_NUMBER}-pr.json"
