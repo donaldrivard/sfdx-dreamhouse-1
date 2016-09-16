@@ -39,7 +39,7 @@ runCmd "$HEROKU_CLIENT force:permset:assign --targetname $SCRATCH_ORG --name Dre
 if [ ! "$SALESFORCE_PRODUCTION" ]; then
     # Load the Properties, Favorites, & Brokers into the Salesforce org
     echo "Loading Dreamhouse data..."
-    runCmd "$HEROKU_CLIENT force:data:import --targetname $SCRATCH_ORG --plan data/brokers-properties-plan.json"
+    runCmd "$HEROKU_CLIENT force:data:import --targetname $SCRATCH_ORG --plan data/sample-data-plan.json"
 fi
 
 exit 0
