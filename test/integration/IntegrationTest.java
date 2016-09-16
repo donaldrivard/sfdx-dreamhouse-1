@@ -19,12 +19,15 @@ public class IntegrationTest extends BaseSalesforceTest {
           // Salesforce retUrl will strip the hash. Selenium driver.get() will hang on a hash.
           // SO set the hash manually.
           ((JavascriptExecutor) driver).executeScript("window.location.hash='#/sObject/Property__c/home'");
-          this.fluentWait(By.className("salesforceIdentityAppLauncherHeader")).isDisplayed();
+        //   this.fluentWait(By.className("salesforceIdentityAppLauncherHeader")).isDisplayed();
 
 //          this.fluentWait(By.linkText("Properties")).click();
           this.fluentWait(By.linkText("Contemporary Luxury")).click();
+          
+          Assert.assertTrue(this.fluentWait(By.xpath("//*[contains(text(), 'Contemporary Luxury')]")).isDisplayed());
 
-          WebElement e = this.fluentWait(By.xpath("//span[contains(text(), 'IQ Picture Uploader')]"));
+          WebElement e = this.driver.findElement(By.xpath("//span[contains(text(), 'IQ Picture Uploader')]"));        
+          
           Assert.assertTrue("IQ Compontent was not loaded", e.isDisplayed());
     }
 }
