@@ -110,6 +110,7 @@
             "useWorkspaceOrg": true,
             "pushSource": false,
             "beforeTests": [
+                "unzip-selenium-client",
                 "compile"
             ]
         },
