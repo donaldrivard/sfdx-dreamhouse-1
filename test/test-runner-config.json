@@ -1,6 +1,6 @@
 {
     "settings": {
-        "outputDir": "$env.RUN_ARTIFACT_DIR",
+        "outputDir": "testArtifacts",
         "selenium": true
     },
     "orgs": [
