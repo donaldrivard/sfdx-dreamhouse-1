@@ -1,4 +1,3 @@
-// New Comment for Pull Request
 public with sharing class PropertyController {
 
     @AuraEnabled
