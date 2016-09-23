@@ -1,5 +1,5 @@
 #!groovy
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 node {
 
 	def SERIAL = System.currentTimeMillis()
@@ -81,8 +81,9 @@ node {
 
         // need to pull out assigned username 
 		rmsg = sh returnStdout: true, script: "${toolbelt}/heroku force:org:create -f config/workspace-scratch-def.json -j -t test -y debug"
-        jsonSlurper = new JsonSlurper()
-        robj = jsonSlurper.parseText(rmsg);
+        printf rmsg
+        jsonSlurper = new JsonSlurperClassic()
+        robj = jsonSlurper.parseText(rmsg)
 		if (robj.status != "ok") { error 'org creation failed: ' + robj.message }
         SFDC_USERNAME=robj.username
 
