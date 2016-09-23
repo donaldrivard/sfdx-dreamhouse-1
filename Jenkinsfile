@@ -24,7 +24,6 @@ node {
 	def CONNECTED_APP_CONSUMER_KEY="3MVG9SemV5D80oBfPBCgboxuJ9df3F8MrzZxhqU5qeUb5MoRs.vuBNHRhhdMh2WDeh5cFiAXcv9z2PnZ7CScu"
 
 	def toolbelt = tool 'toolbelt'
-    def jsonSlurper = new JsonSlurper()
 
 	stage('checkout source') {
 		// when running in multi-branch job, one must issue this command
@@ -82,7 +81,8 @@ node {
 
         // need to pull out assigned username 
 		rmsg = sh returnStdout: true, script: "${toolbelt}/heroku force:org:create -f config/workspace-scratch-def.json -j -t test -y debug"
-        def robj = jsonSlurper.parseText(rmsg);
+        jsonSlurper = new JsonSlurper()
+        robj = jsonSlurper.parseText(rmsg);
 		if (robj.status != "ok") { error 'org creation failed: ' + robj.message }
         SFDC_USERNAME=robj.username
 
