@@ -31,17 +31,9 @@ node {
 	// to save runtime - it is probably best that toolbelt be installed as a Jenkins setup step
 	// rather than installing each time a job is run
 	stage('Install Toolbelt') {
-		// check to see if install of toolbelt is necessary
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku force --help"
+		rc = sh returnStatus: true, script: "${toolbelt}/sfdx force --help"
 		if (rc != 0) {
-			rc = sh returnStatus: true, script: "${toolbelt}/heroku plugins:install salesforce-alm-dev"
-			if (rc != 0) {
-				error 'toolbelt install failed'
-			}
-			rc = sh returnStatus: true, script: "${toolbelt}/heroku force --help"
-			if (rc != 0) {
-				error 'toolbelt install verification failed'
-			}
+			error 'sfdx not installed'
 		}
 	}
 
@@ -57,11 +49,11 @@ node {
 
 		writeFile encoding: 'utf-8', file: 'config.json', text: config
 
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku force:org:authorize -i ${CONNECTED_APP_CONSUMER_KEY} -u ${HUB_ORG} -f ${HUB_KEY} -y debug"
+		rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:org:authorize -i ${CONNECTED_APP_CONSUMER_KEY} -u ${HUB_ORG} -f ${HUB_KEY} -y debug"
 		if (rc != 0) { error 'hub org authorization failed' }
 
         // need to pull out assigned username 
-		rmsg = sh returnStdout: true, script: "${toolbelt}/heroku force:org:create -f config/workspace-scratch-def.json -j -t test -y debug"
+		rmsg = sh returnStdout: true, script: "${toolbelt}/sfdx force:org:create -f config/workspace-scratch-def.json -j -t test -y debug"
         printf rmsg
         def jsonSlurper = new JsonSlurperClassic()
         def robj = jsonSlurper.parseText(rmsg)
@@ -72,12 +64,12 @@ node {
 	}
 
 	stage('Push To Test Org') {
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku force:src:push --all --targetname ${SFDC_USERNAME} -y debug"
+		rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:src:push --all --targetname ${SFDC_USERNAME} -y debug"
 		if (rc != 0) {
 			error 'push all failed'
 		}
 		// assign permset
-		rc = sh returnStatus: true, script: "${toolbelt}/heroku force:permset:assign --targetname ${SFDC_USERNAME} --name DreamHouse -y debug"
+		rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:permset:assign --targetname ${SFDC_USERNAME} --name DreamHouse -y debug"
 		if (rc != 0) {
 			error 'push all failed'
 		}
@@ -85,24 +77,12 @@ node {
 
 	stage('Run Apex Test') {
 		timeout(time: 120, unit: 'SECONDS') {
-			rc = sh returnStatus: true, script: "${toolbelt}/heroku force:apex:test --testlevel RunLocalTests --testartifactdir ${RUN_ARTIFACT_DIR} --reporter tap --targetname ${SFDC_USERNAME} -y debug"
+			rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:apex:test --testlevel RunLocalTests --testartifactdir ${RUN_ARTIFACT_DIR} --reporter tap --targetname ${SFDC_USERNAME} -y debug"
 			if (rc != 0) {
 				error 'apex test run failed'
 			}
 		}
 	}
-
-	// test runner is hanging consistently
-	//    stage('Run Test via Test Runner') {
-	//    	timeout(time: 60, unit: 'SECONDS') {
-	//    		withEnv(["RUN_ARTIFACT_DIR=${RUN_ARTIFACT_DIR}"]) {
-	//				rc = sh returnStatus: true, script: "${toolbelt}/heroku force:test --config ./testrunner/simple.json -y debug"
-	//        		if (rc != 0) {
-	//            		error 'apex test run failed'
-	//        		}
-	//        	}
-	//    	}
-	//	}
 
 	stage('collect results') {
 		junit keepLongStdio: true, testResults: 'tests/**/*-junit.xml'
