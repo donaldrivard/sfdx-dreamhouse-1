@@ -1,6 +1,6 @@
 #!groovy
+import groovy.json.JsonSlurper
 node {
-    import groovy.json.JsonSlurper
 
 	def SERIAL = System.currentTimeMillis()
 	def BRANCH = env.BRANCH_NAME.replaceAll(/[\/\\]/, '')
