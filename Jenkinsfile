@@ -7,14 +7,21 @@ node {
 	def SUB_ORG_DEF_JSON_FILE="dhci-sub-org-def-${BRANCH}-${BUILD_NUMBER}-pr.json"
 	def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
 	def SFDC_USERNAME="ci-${BRANCH}-${SERIAL}-pr@dhci.com"
-	def SUB_SFDC_USERNAME="ci-sub-${BRANCH}-${SERIAL}-pr@dhci.com"
-	def HUB_ORG=env.HUB_ORG_DH
-	def HUB_KEY=env.HUB_KEY_FILE_PATH
-	def SFDC_HOST = env.SFDC_HOST
-	def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY
 	def CONNECTED_APP_CALLBACK_URL=env.CONNECTED_APP_CALLBACK_URL
 	def SIGN_UP_EMAIL=env.SIGN_UP_EMAIL
 	def API_VERSION=env.API_VERSION
+
+	#def HUB_ORG=env.HUB_ORG_DH
+	#def HUB_KEY=env.HUB_KEY_FILE_PATH
+	#def SFDC_HOST = env.SFDC_HOST
+	#def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY
+
+    // Hard coding until pete can repair the damage
+	def HUB_ORG="wade.wegner@acdxgs0hub.org"
+	def HUB_KEY="jenkins/server_adcxgs0hub.my.salesforce.com.key"
+	def SFDC_HOST="https://adcxgs0hub.my.salesforce.com"
+	def CONNECTED_APP_CONSUMER_KEY="3MVG9SemV5D80oBfPBCgboxuJ9df3F8MrzZxhqU5qeUb5MoRs.vuBNHRhhdMh2WDeh5cFiAXcv9z2PnZ7CScu"
+
 	def toolbelt = tool 'toolbelt'
 
 	stage('checkout source') {
