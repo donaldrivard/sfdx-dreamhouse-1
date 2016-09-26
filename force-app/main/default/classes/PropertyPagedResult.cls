@@ -1,3 +1,4 @@
+// PropertyPagedResult is used for relaying property information
 public class PropertyPagedResult {
     
     @AuraEnabled
