@@ -14,7 +14,7 @@ then
    PROFILE="basic"
 fi
 
-CMD="force:test -c test/test-runner-config.json -p $PROFILE -r tap"
+CMD="force:test -c test/test-runner-config.json -p $PROFILE -r tap -w"
 echo "Running heroku $CMD"
 
 # TODO Hard code the path to heroku cli for now. We should be able to just use
