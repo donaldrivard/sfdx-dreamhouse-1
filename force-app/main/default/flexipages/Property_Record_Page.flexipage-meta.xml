@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlexiPage xmlns="urn:metadata.tooling.soap.sforce.com" fqn="Property_Record_Page">
-    <flexiPageRegions>
+    <flexiPageRegions> 
         <componentInstances>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
