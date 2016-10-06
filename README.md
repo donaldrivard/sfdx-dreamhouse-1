@@ -3,7 +3,6 @@
 [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ### Source-based deploy
-change here
 
 On the command line:
 
