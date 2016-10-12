@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
-<CustomField xmlns='urn:metadata.tooling.soap.sforce.com' fqn='Case.Property__c'>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
   <fullName>Property__c</fullName>
   <deleteConstraint>SetNull</deleteConstraint>
   <externalId>false</externalId>

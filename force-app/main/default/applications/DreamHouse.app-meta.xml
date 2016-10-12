@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<CustomApplication xmlns='urn:metadata.tooling.soap.sforce.com' fqn='DreamHouse'>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
   <defaultLandingTab>standard-home</defaultLandingTab>
   <description>DreamHouse helps you connect with your Customers in a whole new way.</description>
   <formFactors>Large</formFactors>
