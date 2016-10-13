@@ -59,7 +59,7 @@ node {
     stage('Run Apex Test') {
         sh "mkdir -p ${RUN_ARTIFACT_DIR}"
         timeout(time: 120, unit: 'SECONDS') {
-            rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:apex:test --testlevel RunLocalTests --testartifactdir ${RUN_ARTIFACT_DIR} --reporter tap --username ${SFDC_USERNAME} -y debug"
+            rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:apex:test --testlevel RunLocalTests --outputdir ${RUN_ARTIFACT_DIR} --reporter tap --username ${SFDC_USERNAME} -y debug"
             if (rc != 0) {
                 error 'apex test run failed'
             }
