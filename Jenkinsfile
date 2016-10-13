@@ -28,28 +28,7 @@ node {
         checkout scm
     }
 
-    // to save runtime - it is probably best that toolbelt be installed as a Jenkins setup step
-    // rather than installing each time a job is run
-    stage('Install Toolbelt') {
-        rc = sh returnStatus: true, script: "${toolbelt}/sfdx force --help"
-        if (rc != 0) {
-            error 'sfdx not installed'
-        }
-    }
-
     stage('Create Scratch Org') {
-        // modify workspace file to point to correct Salesforce App Server
-        sh "mkdir -p ${RUN_ARTIFACT_DIR}"
-
-        config = sprintf('''{
-                "SfdcLoginUrl" : "%s",
-                "ApiVersion" : "%s",
-                "SourceApiVersion" : "36.0",
-                "EnableTokenEncryption" : false,
-                "DefaultArtifact" : "force-app"
-                    }''', SFDC_HOST, API_VERSION)
-
-        writeFile encoding: 'utf-8', file: 'workspace-config.json', text: config
 
         rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:org:authorize -i ${CONNECTED_APP_CONSUMER_KEY} -u ${HUB_ORG} -f ${HUB_KEY} -y debug"
         if (rc != 0) { error 'hub org authorization failed' }
@@ -78,6 +57,7 @@ node {
     }
 
     stage('Run Apex Test') {
+        sh "mkdir -p ${RUN_ARTIFACT_DIR}"
         timeout(time: 120, unit: 'SECONDS') {
             rc = sh returnStatus: true, script: "${toolbelt}/sfdx force:apex:test --testlevel RunLocalTests --testartifactdir ${RUN_ARTIFACT_DIR} --reporter tap --targetname ${SFDC_USERNAME} -y debug"
             if (rc != 0) {
