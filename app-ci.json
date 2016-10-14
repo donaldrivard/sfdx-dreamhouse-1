@@ -9,15 +9,18 @@
         "force.com",
         "heroku"
     ],
+    "addons": [
+        "salesforce"
+    ],
     "buildpacks": [
         {
             "url": "https://github.com/heroku/salesforce-buildpack"
         }
     ],
     "scripts": {
+        "test-setup": "node .salesforce/force.js release",
         "test": "test/test.sh"
     },
     "env": {
-        "SALESFORCE_URL": "false"
     }
 }
