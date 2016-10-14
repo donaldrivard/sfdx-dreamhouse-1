@@ -10,7 +10,7 @@
         "heroku"
     ],
     "addons": [
-        "salesforce",
+        "salesforce"
     ],
     "buildpacks": [
         {
