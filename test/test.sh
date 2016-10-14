@@ -17,5 +17,5 @@ echo '{
 }' > $XDG_DATA_HOME/.appcloud/workspace-config.json
 
 echo "Invoking '$PROFILE' Test Runner profile..."
-CMD="force:test -c test-runner-config.json -p $PROFILE -r tap"
+CMD="force:test -c test/test-runner-config.json -p $PROFILE -r tap"
 heroku $CMD
