@@ -33,13 +33,13 @@ runCmd() {
 
 # Set perms on apps and objects
 echo "Enabling Dreamhouse PermissionSet for App and SObject visibility..."
-runCmd "$HEROKU_CLIENT force:permset:assign --targetname $SCRATCH_ORG --name DreamHouse"
+runCmd "$HEROKU_CLIENT force:permset:assign --name DreamHouse"
 
 
-if [ ! "$SALESFORCE_PRODUCTION" ]; then
+if [ "$LOAD_DATA" != false ]; then
     # Load the Properties, Favorites, & Brokers into the Salesforce org
     echo "Loading Dreamhouse data..."
-    runCmd "$HEROKU_CLIENT force:data:import --targetname $SCRATCH_ORG --plan data/sample-data-plan.json"
+    runCmd "$HEROKU_CLIENT force:data:import --plan data/sample-data-plan.json"
 fi
 
 exit 0

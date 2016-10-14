@@ -1,10 +1,11 @@
 {
-    "name": "Dreamhouse Force.com Demo",
-    "description": "Dreamforce Force.com Applicaiton demonstrating Force.com and Heroku Integration",
-    "repository": "https://github.com/forcedotcom/dreamhouse-acdx",
+    "name": "Dreamhouse Salesforce DX Demo",
+    "description": "Dreamforce Force.com Application demonstrating Salesforce DX and Heroku Integration",
+    "repository": "https://github.com/forcedotcom/dreamhouse-devkeynote-sdx",
     "logo": "https://avatars0.githubusercontent.com/u/464563?v=3&s=200",
     "keywords": [
         "salesforce",
+        "salesforcedx",
         "force.com",
         "heroku"
     ],
@@ -14,12 +15,9 @@
         }
     ],
     "scripts": {
-        "test": "bin/test.sh"
+        "test": "test/test.sh"
     },
     "env": {
-        "HEROKU_APP_NAME": "-pr-0",
-        "SALESFORCE_URL": "false",
-        "SALESFORCE_BYPASS_COMPILE": "true",
-        "SALESFORCE_BUILDPACK_VERBOSE": "false"
+        "SALESFORCE_URL": "false"
     }
 }
