@@ -25,7 +25,7 @@ set -u
 SCRIPT_DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 # Pushes source to the Salesforce org
-.salesforce/deploy
+node .salesforce/force.js release
 
 # Set a password for the admin user and write it out to the log
 #npm run set-org-password
