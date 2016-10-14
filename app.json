@@ -11,9 +11,6 @@
     ],
     "addons": [
         "salesforce",
-        "salesforcedx",
-        "force.com",
-        "heroku"
     ],
     "buildpacks": [
         {
