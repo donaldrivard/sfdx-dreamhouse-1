@@ -2,11 +2,11 @@
   "Company": "ACME Org",
   "Country": "US",
   "LastName": "Wegner",
-  "SignupEmail": "wade.wegner@salesforce.com",
+  "Email": "wade.wegner@salesforce.com",
   "Edition": "Unlimited",
-  "Features": "Multicurrency”,
+  "Features": "Multicurrency",
   "OrgPreferences" : {
-     “ChatterEnabled” : false,
+     "ChatterEnabled" : false,
      "IsOrdersEnabled" : true
   }
 }

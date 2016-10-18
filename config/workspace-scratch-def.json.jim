@@ -2,7 +2,7 @@
   "Company": "ACME Org",
   "Country": "US",
   "LastName": "Wegner",
-  "SignupEmail": "wade.wegner@salesforce.com",
+  "Email": "wade.wegner@salesforce.com",
   "Edition": "Enterprise",
   "OrgPreferences" : {
      “ChatterEnabled” : false,

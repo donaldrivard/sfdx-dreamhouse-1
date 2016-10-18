@@ -2,7 +2,7 @@
   "Company": "ACME Org",
   "Country": "US",
   "LastName": "Wegner",
-  "SignupEmail": "wade.wegner@salesforce.com",
+  "Email": "wade.wegner@salesforce.com",
   "TemplateId": "0TTB0000000A6Bd",
   "OrgPreferences" : {
     "S1DesktopEnabled" : true
