@@ -1,12 +1,25 @@
 {
     "settings": {
-        "outputDir": "$WORKSPACE/test/artifacts",
-        "selenium": true
+        "outputDir": "$WORKSPACE/test/artifacts"
     },
-    "data": [
+    "jobs": [
         {
-            "name": "dreamhouse-data",
-            "plan": "data/sample-data-plan.json"
+            "name": "basic",
+            "default": true,
+            "orgs": ["dreamhouse-default"],
+            "testCommand": "apex",
+            "tests": [
+                "PropertyControllerTest"
+            ]
+        },
+        {
+            "name": "ui",
+            "orgs": ["dreamhouse-default"],
+            "selenium": true,
+            "testCommand": "run-integration-tests",
+            "tests": ["test.integration.IntegrationTest"],
+            "data": ["data/sample-data-plan.json"],
+            "before": ["setup-phantom", "compile-integration-tests"]
         }
     ],
     "orgs": [
@@ -16,61 +29,11 @@
             "permsets": ["Dreamhouse"]
         }
     ],
-    "suites": [
-        {
-            "name": "basic-apex",
-            "categories": [
-                {
-                    "type": "apex",
-                    "tests": [
-                        "PropertyControllerTest"
-                    ]
-                }
-            ]
-        },{
-            "name": "integration",
-            "categories": [
-                {
-                    "type": "run-integration-tests",
-                    "tests": ["test.integration.IntegrationTest"]
-                }
-            ],
-            "data": ["dreamhouse-data"]
-        }
-    ],
-    "environments": [
-        {
-            "name": "dreamhouse",
-            "orgs": [
-                "dreamhouse-default"
-            ]
-        }
-    ],
-    "invocations": [
-        {
-            "name": "basic",
-            "environments": [
-                "dreamhouse"
-            ],
-            "suites": [
-                "basic-apex"
-            ]
-        },{
-            "name": "all-tests",
-            "environments": [
-                "dreamhouse"
-            ],
-            "suites": [
-                "basic-apex",
-                "integration"
-            ]
-        }
-    ],
     "operations": [
         {
             "name": "setup-phantom",
             "timeout": 60000,
-            "exec": "bash",            
+            "exec": "bash",
             "args": [
                 "$WORKSPACE/test/scripts/phantom.sh",
                 "$outputDir"
@@ -105,59 +68,11 @@
         {
             "name": "local",
             "useWorkspaceOrg": true,
-            "pushSource": false,
-            "overrides": {
-                "settings": {
-                    "selenium": false
-                }
-            }
-        },
-        {
-            "name": "local-with-selenium",
-            "useWorkspaceOrg": true,
-            "pushSource": false,
-            "beforeTests": [
-                "compile-integration-tests"
-            ]
-        },
-        {
-            "name": "heroku-basic",
-            "overrides": {
-                "settings": {
-                    "selenium": false
-                }
-            }
+            "pushSource": false
         },
         {
             "name": "heroku-ci",
-            "beforeTests": [
-                "setup-phantom",
-                "compile-integration-tests"
-            ]
-        }
-    ],
-    "profiles": [
-        {
-            "name": "local",
-            "context": "local-with-selenium",
-            "default": true,
-            "invocations": [
-                "all-tests"
-            ]
-        },
-        {
-            "name": "basic",
-            "context": "heroku-basic",
-            "invocations": [
-                "basic"
-            ]
-        },
-        {
-            "name": "master",
-            "context": "heroku-ci",
-            "invocations": [
-                "all-tests"
-            ]
+            "default": true
         }
     ]
 }
