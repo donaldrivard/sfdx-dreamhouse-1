@@ -1,0 +1,20 @@
+{
+  "name": "sfdx-dreamhouse-1",
+  "scripts": {
+  },
+  "env": {
+    "HEROKU_APP_NAME": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "salesforce"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/salesforce-buildpack"
+    }
+  ]
+}
